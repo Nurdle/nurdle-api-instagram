@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nurdle.Api.Instagram.Client", "Nurdle.Api.Instagram.Client\Nurdle.Api.Instagram.Client.csproj", "{B9D108D7-9A63-45DA-A084-CF6633BF3777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nurdle.Api.Instagram.Tests", "Nurdle.Api.Instagram.Tests\Nurdle.Api.Instagram.Tests.csproj", "{E4204B81-2B61-4B12-AB7D-7C42203614EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nurdle.Api.Instagram.Owin", "Nurdle.Api.Instagram.Owin\Nurdle.Api.Instagram.Owin.csproj", "{1B360F97-11AF-4E87-A9C8-2968DE814A14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9D108D7-9A63-45DA-A084-CF6633BF3777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D108D7-9A63-45DA-A084-CF6633BF3777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D108D7-9A63-45DA-A084-CF6633BF3777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D108D7-9A63-45DA-A084-CF6633BF3777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4204B81-2B61-4B12-AB7D-7C42203614EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4204B81-2B61-4B12-AB7D-7C42203614EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4204B81-2B61-4B12-AB7D-7C42203614EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4204B81-2B61-4B12-AB7D-7C42203614EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B360F97-11AF-4E87-A9C8-2968DE814A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B360F97-11AF-4E87-A9C8-2968DE814A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B360F97-11AF-4E87-A9C8-2968DE814A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B360F97-11AF-4E87-A9C8-2968DE814A14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
