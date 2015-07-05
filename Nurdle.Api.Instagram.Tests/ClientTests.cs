@@ -2,8 +2,7 @@
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using NUnit.Framework;
 using Newtonsoft.Json;
 
 using Nurdle.Api.Instagram;
@@ -12,10 +11,10 @@ using Nurdle.Api.Instagram.Endpoints;
 
 namespace Nurdle.Api.Instagram.Tests
 {
-	[TestClass]
+	[TestFixture]
 	public class InstagramTest
 	{
-		[TestMethod]
+		[Test]
 		public async Task User_User()
 		{
 			var client = new InstagramClient();
@@ -23,7 +22,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task User_SelfFeed()
 		{
 			var client = new InstagramClient();
@@ -31,7 +30,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task User_UserRecentMedia_WithToken()
 		{
 			var client = new InstagramClient();
@@ -39,7 +38,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task User_UserRecentMedia()
 		{
 			var client = new InstagramClient();
@@ -47,7 +46,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task User_SelfLikedMedia()
 		{
 			var client = new InstagramClient();
@@ -55,7 +54,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task User_Search()
 		{
 			var client = new InstagramClient();
@@ -63,7 +62,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Relationship_UserFollows()
 		{
 			var client = new InstagramClient();
@@ -71,7 +70,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Relationship_UserFollowedBy()
 		{
 			var client = new InstagramClient();
@@ -79,7 +78,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Relationship_SelfRequestedBy()
 		{
 			var client = new InstagramClient();
@@ -87,7 +86,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Relationship_UserRelationship()
 		{
 			var client = new InstagramClient();
@@ -95,7 +94,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Relationship_UserRelationship_POST()
 		{
 			var client = new InstagramClient();
@@ -103,7 +102,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Media_Media()
 		{
 			var client = new InstagramClient();
@@ -111,7 +110,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Media_Shortcode()
 		{
 			var client = new InstagramClient();
@@ -119,7 +118,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Media_Search()
 		{
 			var client = new InstagramClient();
@@ -127,7 +126,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Media_Popular()
 		{
 			var client = new InstagramClient();
@@ -135,7 +134,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Comments_MediaComments()
 		{
 			var client = new InstagramClient();
@@ -143,7 +142,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Likes_MediaLikes()
 		{
 			var client = new InstagramClient();
@@ -151,7 +150,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Likes_MediaLike()
 		{
 			var client = new InstagramClient();
@@ -159,7 +158,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Likes_MediaLike_DELETE()
 		{
 			var client = new InstagramClient();
@@ -167,7 +166,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Tags_Tag()
 		{
 			var client = new InstagramClient();
@@ -175,7 +174,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Tags_TagRecentMedia()
 		{
 			var client = new InstagramClient();
@@ -183,7 +182,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Tags_Search()
 		{
 			var client = new InstagramClient();
@@ -191,7 +190,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Locations_Location()
 		{
 			var client = new InstagramClient();
@@ -199,7 +198,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Locations_LocationRecentMedia()
 		{
 			var client = new InstagramClient();
@@ -207,7 +206,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Locations_Search()
 		{
 			var client = new InstagramClient();
@@ -215,7 +214,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Locations_SearchFacebookPlaces()
 		{
 			var client = new InstagramClient();
@@ -223,7 +222,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		[TestMethod]
+		[Test]
 		public async Task Locations_SearchFoursqare()
 		{
 			var client = new InstagramClient();
@@ -231,7 +230,7 @@ namespace Nurdle.Api.Instagram.Tests
 			Assert.AreEqual(200, response.meta.code);
 		}
 
-		//[TestMethod]
+		//[Test]
 		//public async Task Authorize()
 		//{
 		//	string clientId = Environment.GetEnvironmentVariable("INSTAGRAM_CLIENTID", EnvironmentVariableTarget.User);
@@ -246,7 +245,7 @@ namespace Nurdle.Api.Instagram.Tests
 		//	Assert.AreEqual("text/html", get.Content.Headers.ContentType);
 		//}
 
-		//[TestMethod]
+		//[Test]
 		//public async Task RequestAccessToken()
 		//{
 		//	string code = "749f7aa42fce456983e87a60e9de5769";
@@ -277,7 +276,7 @@ namespace Nurdle.Api.Instagram.Tests
 		//	Assert.IsNotNull(oauthToken.user);
 		//}
 
-		//[TestMethod]
+		//[Test]
 		//public async Task SubscribeToAllAuthorizedUsers()
 		//{
 		//	string clientId = Environment.GetEnvironmentVariable("INSTAGRAM_CLIENTID", EnvironmentVariableTarget.User);
