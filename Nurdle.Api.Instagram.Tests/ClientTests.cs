@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 using Nurdle.Api.Instagram;
 using Nurdle.Api.Instagram.Responses;
-using Nurdle.Api.Instagram.Endpoints;
 
 namespace Nurdle.Api.Instagram.Tests
 {

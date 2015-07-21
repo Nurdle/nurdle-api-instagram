@@ -52,10 +52,10 @@
     <Compile Include="Authentication.cs" />
     <Compile Include="GrantTypes.cs" />
     <Compile Include="InstagramClient.cs" />
-    <Compile Include="Endpoints\CommentsEndpoint.cs" />
+    <Compile Include="Endpoints\CommentsApi.cs" />
     <Compile Include="Endpoints\GeographiesApi.cs" />
-    <Compile Include="Endpoints\LikesEndpoint.cs" />
-    <Compile Include="Endpoints\LocationsEndpoint.cs" />
+    <Compile Include="Endpoints\LikesApi.cs" />
+    <Compile Include="Endpoints\LocationsApi.cs" />
     <Compile Include="Endpoints\MediaEndpoint.cs" />
     <Compile Include="Endpoints\RelationshipEndpoint.cs" />
     <Compile Include="Responses\Counts.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Endpoints\TagsEndpoint.cs" />
     <Compile Include="Endpoints\UserEndpoint.cs" />
     <Compile Include="Scopes.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Nurdle.Api.Instagram.nuspec" />

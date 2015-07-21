@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,14 @@ namespace Nurdle.Api.Instagram
 	{
 		public static Task<Envelope<IEnumerable<Media>>> GetRecentMediaForGeography(this InstagramClient client, string geoId, int? count = null, string minId = null)
 		{
-			string url = String.Concat(
-				"/v1/geographies/",
-				geoId,
-				"/media/recent",
-				"?client_id=",
-				client.ClientId,
-				"&count=",
-				count == null ? (string)null : count.ToString(),
-				"&min_id=",
-				minId == null ? (string)null : HttpUtility.UrlEncode(minId)
-			);
-			return client.GetAsync<Envelope<IEnumerable<Media>>>(url);
-		}
+			var query = new NameValueCollection();
+			query["client_id"] = client.ClientId;
+			if (count != null) query["count"] = count.ToString();
+			if(minId != null) query["min_id"] = minId;
 
+			string path = String.Concat("/v1/geographies/", geoId, "/media/recent");
+			
+			return client.HttpGetAsync<Envelope<IEnumerable<Media>>>(path, query);
+		}
 	}
 }

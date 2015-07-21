@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,49 +8,42 @@ using System.Web;
 
 using Nurdle.Api.Instagram.Responses;
 
-namespace Nurdle.Api.Instagram.Endpoints
+namespace Nurdle.Api.Instagram
 {
 	public static class TagsEndpoint
 	{
 		public static Task<Envelope<Tag>> GetTag(this InstagramClient client, string tagName)
 		{
-			string url = String.Concat(
-				"/v1/tags/",
-				tagName,
-				"?access_token=",
-				client.AccessToken
-			);
-			return client.GetAsync<Envelope<Tag>>(url);
+			var query = new NameValueCollection();
+			query["access_token"] = client.AccessToken;
+
+			string path = String.Concat("/v1/tags/", tagName);
+
+			return client.HttpGetAsync<Envelope<Tag>>(path, query);
 		}
 
 		public static Task<Envelope<IEnumerable<Media>>> GetRecentMediaWithTag(this InstagramClient client, string tagName, int? count = null, string minId = null, string maxId = null)
 		{
-			string url = String.Concat(
-				"/v1/tags/",
-				tagName,
-				"/media/recent",
-				"?access_token=",
-				client.AccessToken,
-				"&count=",
-				count == null ? (string)null : count.ToString(),
-				"&min_id=",
-				minId == null ? (string)null : HttpUtility.UrlEncode(minId),
-				"&max_id=",
-				maxId == null ? (string)null : HttpUtility.UrlEncode(maxId)
-			);
-			return client.GetAsync<Envelope<IEnumerable<Media>>>(url);
+			var query = new NameValueCollection();
+			query["access_token"] = client.AccessToken;
+			if(count != null) query["count"] = count.ToString();
+			if(minId != null) query["min_id"] = minId;
+			if(maxId != null) query["max_id"] = maxId;
+
+			string path = String.Concat("/v1/tags/", tagName, "/media/recent");
+
+			return client.HttpGetAsync<Envelope<IEnumerable<Media>>>(path, query);
 		}
 
 		public static Task<Envelope<IEnumerable<Tag>>> SearchTags(this InstagramClient client, string q)
 		{
-			string url = String.Concat(
-				"/v1/tags/search",
-				"?access_token=",
-				client.AccessToken,
-				"&q=",
-				HttpUtility.UrlEncode(q)
-			);
-			return client.GetAsync<Envelope<IEnumerable<Tag>>>(url);
+			var query = new NameValueCollection();
+			query["access_token"] = client.AccessToken;
+			query["q"] = q;
+
+			string path = "/v1/tags/search";
+
+			return client.HttpGetAsync<Envelope<IEnumerable<Tag>>>(path, query);
 		}
 	}
 }

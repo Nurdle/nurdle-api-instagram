@@ -1,26 +1,27 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Net;
+using System.Net.Http;
 
 using Nurdle.Api.Instagram.Responses;
 
-namespace Nurdle.Api.Instagram.Endpoints
+namespace Nurdle.Api.Instagram
 {
-	public static class CommentsEndpoint
+	public static class CommentsApi
 	{
 		public static Task<Envelope<IEnumerable<Comment>>> GetCommentsOnMedia(this InstagramClient client, string mediaId)
 		{
-			string url = String.Concat(
-				"/v1/media/",
-				mediaId,
-				"/comments",
-				"?access_token=",
-				client.AccessToken
-			);
-			return client.GetAsync<Envelope<IEnumerable<Comment>>>(url);
+			var query = new NameValueCollection();
+			query["access_token"] = client.AccessToken;
+
+			var path = String.Concat("/v1/media/", mediaId, "/comments");
+
+			return client.HttpGetAsync<Envelope<IEnumerable<Comment>>>(path, query);
 		}
 
 		public static void MakeCommentOnMedia(this InstagramClient client)

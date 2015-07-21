@@ -87,6 +87,7 @@
     <Compile Include="ClientTests.cs" />
     <Compile Include="InstagramMiddlewareTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserEndpointTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nurdle.Api.Instagram.Client\Nurdle.Api.Instagram.Client.csproj">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,26 +46,20 @@ namespace Nurdle.Api.Instagram
 				throw new ArgumentException("Missing code argument");
 
 			//Only supported grant type
-			if (grantType == null) grantType = "authorization_code";
+			if (grantType == null) 
+				grantType = "authorization_code";
 
 			//Concat authroize url
-			string url = String.Concat(
-				"/oauth/access_token/"
-			);
-			string body = String.Concat(
-				"client_id=",
-				HttpUtility.UrlEncode(client.ClientId),
-				"&client_secret=",
-				HttpUtility.UrlEncode(client.SecretKey),
-				"&grant_type=",
-				HttpUtility.UrlEncode(grantType),
-				"&redirect_uri=",
-				HttpUtility.UrlEncode(redirectUri),
-				"&code=",
-				code
-			);
+			var content = new NameValueCollection();
+			content["client_id"] = client.ClientId;
+			content["client_secret"] = client.SecretKey;
+			content["grant_type"] = grantType;
+			content["redirect_uri"] = redirectUri;
+			content["code"] = code;
 
-			return await client.PostAsync<Responses.AccessToken>(url, body);
+			string path = "/oauth/access_token/";
+
+			return await client.HttpPostAsync<Responses.AccessToken>(path, null, content);
 		}
 	}
 }
